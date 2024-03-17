@@ -1,0 +1,91 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Icon="Ressources/Images/icon.ico"
+        Title="Calculator" Height="514" Width="376" ResizeMode="NoResize">
+    
+    <Grid Background="#3d3d3d" Height="494" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="77"/>
+            <RowDefinition Height="77"/>
+            <RowDefinition Height="77"/>
+            <RowDefinition Height="77"/>
+            <RowDefinition Height="77"/>
+        </Grid.RowDefinitions>
+
+        <Grid.Resources>
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Background" Value="#C490D1"/>
+                <Setter Property="FontSize" Value="34"/>
+                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                <Style.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Style.Resources>
+            </Style>
+            <Style x:Key="MyStyle" TargetType="{x:Type Control}">
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Background" Value="#750D37"/>
+
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontSize" Value="29"/>
+                <Style.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Style.Resources>
+            </Style>
+        </Grid.Resources>
+
+
+
+        <TextBox Text="0" IsReadOnly="True" Background="#3d3d3d" TextAlignment="Right" x:Name="TB_Display" FontSize="50" TextChanged="TB_Display_TextChanged_1" Foreground="White" Height="72" VerticalAlignment="Top" Margin="0,20,0,0" Grid.ColumnSpan="5"/>
+        <Button Content="sin()" Grid.Row="1" Grid.Column="0" Name="BUTTON_Sin" Style="{StaticResource MyStyle}" Click="BUTTON_Sin_Click" Margin="5,5,5,5"/>
+        <Button Content="cos()" Grid.Row="1" Grid.Column="1" Name="BUTTON_Cos" Style="{StaticResource MyStyle}" Click="BUTTON_Cos_Click" Margin="5,5,5,5"/>
+        <Button Content="tan()" Grid.Row="1" Grid.Column="3" Name="BUTTON_Tan" Style="{StaticResource MyStyle}" Margin="5,5,5,5" Click="BUTTON_Tan_Click"/>
+        <Button Content="e" Grid.Row="1" Grid.Column="2" Name="BUTTON_Exponential" Style="{StaticResource MyStyle}" Margin="5,5,5,5" Click="BUTTON_Exponential_Click"/>
+        <Button Content="log" Grid.Row="1" Grid.Column="4" Name="BUTTON_Log" Style="{StaticResource MyStyle}" Margin="5,5,5,5" Click="BUTTON_Log_Click"/>
+
+        <Button Content="1" Grid.Row="2" Grid.Column="0" Name="BUTTON_1" Click="BUTTON_Number_Click" Margin="5,5,5,5"/>
+        <Button Content="2" Grid.Row="2" Grid.Column="1" Name="BUTTON_2" Click="BUTTON_Number_Click" Margin="5,5,5,5"/>
+        <Button Content="3" Grid.Row="2" Grid.Column="2" Name="BUTTON_3" Click="BUTTON_Number_Click" Margin="5,5,5,5"/>
+        <Button Content="+" Grid.Row="2" Grid.Column="3" Name="BUTTON_Plus" Style="{StaticResource MyStyle}" Click="BUTTON_Operation_Click" Foreground="White" Margin="5,5,5,5"/>
+        <Button Content="^" Grid.Row="2" Grid.Column="4" Name="BUTTON_Power" Style="{StaticResource MyStyle}" Click="BUTTON_Operation_Click" Margin="5,5,5,5"/>
+
+        <Button Content="4" Grid.Row="3" Grid.Column="0" Name="BUTTON_4" Click="BUTTON_Number_Click" Margin="5,5,5,5"/>
+        <Button Content="5" Grid.Row="3" Grid.Column="1" Name="BUTTON_5" Click="BUTTON_Number_Click" Margin="5,5,5,5"/>
+        <Button Content="6" Grid.Row="3" Grid.Column="2" Name="BUTTON_6" Click="BUTTON_Number_Click" Margin="5,5,5,5"/>
+        <Button Content="-" Grid.Row="3" Grid.Column="3" Name="BUTTON_Minus" Style="{StaticResource MyStyle}" Click="BUTTON_Operation_Click" Margin="5,5,5,5"/>
+        <Button Content="π" Grid.Row="3" Grid.Column="4" Name="BUTTON_Pi" Style="{StaticResource MyStyle}" Click="BUTTON_Number_Click" Margin="5,5,5,5"/>
+
+        <Button Content="7" Grid.Row="4" Grid.Column="0" Name="BUTTON_7" Click="BUTTON_Number_Click" Margin="5,5,5,5"/>
+        <Button Content="8" Grid.Row="4" Grid.Column="1" Name="BUTTON_8" Click="BUTTON_Number_Click" Margin="5,5,5,5"/>
+        <Button Content="9" Grid.Row="4" Grid.Column="2" Name="BUTTON_9" Click="BUTTON_Number_Click" Margin="5,5,5,5"/>
+        <Button Content="*" Grid.Row="4" Grid.Column="3" Name="BUTTON_Multiply" Style="{StaticResource MyStyle}" Click="BUTTON_Operation_Click" Padding="1,1,1,1" UseLayoutRounding="True" Margin="9,5,5,5"/>
+        <Button Content="√" Grid.Row="4" Grid.Column="4" Name="BUTTON_SquareRoot" Style="{StaticResource MyStyle}" Click="BUTTON_SquareRoot_Click" Margin="5,5,5,5"/>
+
+        <Button Content="0" Grid.Row="5" Grid.Column="0" Name="BUTTON_0" Click="BUTTON_Number_Click" Margin="5,5,5,5"/>
+        <Button Content="CLR" Grid.Row="5" Grid.Column="1" Name="BUTTON_Clear" Background="#FF726DA8" Click="BUTTON_Clear_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Margin="5,5,5,5"/>
+        <Button Content="=" Grid.Row="5" Grid.Column="2" Name="BUTTON_Equal" Background="#FF726DA8"  Click="BUTTON_Equal_Click" Margin="5,5,5,5"/>
+        <Button Content="/" Grid.Row="5" Grid.Column="3" Name="BUTTON_Divide" Style="{StaticResource MyStyle}" Click="BUTTON_Operation_Click" Margin="5,5,5,5"/>
+        <Button Content="." Grid.Row="5" Grid.Column="4" Name="BUTTON_Point" Style="{StaticResource MyStyle}"  Margin="5,5,5,5" Click="BUTTON_Point_Click"/>
+
+
+
+    </Grid>
+
+</Window>
